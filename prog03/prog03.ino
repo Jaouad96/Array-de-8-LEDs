@@ -15,6 +15,7 @@ const int led5 = 10;         // donar nom al pin 10 de l’Arduino
 const int led6 = 11;         // donar nom al pin 11 de l’Arduino
 const int led7 = 12;         // donar nom al pin 12 de l’Arduino
 const int buttonPin = 2;     // donar nom al pin 2 de l’Arduino
+int estado = 0;
 //********** Setup ****************************************************************
 void setup()
 {
@@ -31,8 +32,9 @@ void setup()
 //********** Loop *****************************************************************
 void loop()
 {
-  if (digitalRead(buttonPin) == 0)
-  {digitalWrite(led0, HIGH);    // posar a 5V el pin 5
+  estado = digitalRead(buttonPin);
+  if (estado == HIGH) {
+  digitalWrite(led0, HIGH);    // posar a 5V el pin 5
   digitalWrite(led1, HIGH);    // posar a 5V el pin 6
   digitalWrite(led2, HIGH);    // posar a 5V el pin 7
   digitalWrite(led3, HIGH);    // posar a 5V el pin 8
@@ -54,6 +56,7 @@ void loop()
   
   delay(500);                  // es queden leds 500ms apagats
 
+  
   }
   else
   {
